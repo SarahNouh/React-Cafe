@@ -1,0 +1,56 @@
+// @Author: sarahnouh
+// @Date:   1985-10-26T10:15:00+02:00
+// @Last modified by:   sarahnouh
+// @Last modified time: 2019-06-17T19:08:10+02:00
+$blue: #85a9ff;
+$lightPink: #ffe5d9;
+.header {
+  padding: 10px;
+  box-shadow: 0px 6px 10px 0px #e6e2e1;
+  position: relative;
+  .title {
+    font-weight: 500;
+    margin-bottom: 0;
+    color: $blue;
+  }
+}
+.btn {
+  background-color: $blue;
+  border-color: $blue;
+}
+.menu {
+  // background-color: #f0f0f7;
+  color: $blue;
+  .menu-header {
+    padding: 50px 0px;
+  }
+  .menu-card {
+    margin-bottom: 40px;
+    .card-info {
+      padding: 20px;
+      background-color: white;
+      color: $blue;
+      border: 2px solid $lightPink;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+}
+.item-form {
+  // background-color: #f0f0f7;
+  .form-header {
+    margin: 50px 0;
+    color: $blue;
+  }
+  .form-control {
+    border-color: $blue;
+    // color: lightgray;
+  }
+  label {
+    // color: gray;
+  }
+}
