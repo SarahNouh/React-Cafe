@@ -11,6 +11,7 @@ interface menuItem {
 interface appState {
   renderForm: boolean;
   menuItems: menuItem[];
+  formError: boolean;
 }
 class App extends Component<{}, appState> {
   constructor({}) {
@@ -48,7 +49,8 @@ class App extends Component<{}, appState> {
           name: "Mozarella Sticks",
           price: 5
         }
-      ]
+      ],
+      formError: false
     };
   }
   handleShowForm = () => {
@@ -58,14 +60,19 @@ class App extends Component<{}, appState> {
   };
 
   handleSaveItem = (newItem: menuItem) => {
-    if (newItem.name !== "") {
+    if (newItem.name !== "" && newItem.price > 0) {
       let newItems = this.state.menuItems;
       newItems.push(newItem);
       this.setState({
         renderForm: false,
-        menuItems: newItems
+        menuItems: newItems,
+        formError: true
       });
     } else {
+      this.setState({
+        renderForm: true,
+        formError: true
+      });
     }
   };
   render() {
@@ -75,7 +82,10 @@ class App extends Component<{}, appState> {
           <h2 className="title text-center">Cafe React</h2>
         </header>
         {this.state.renderForm ? (
-          <Form handleSaveItem={this.handleSaveItem} />
+          <Form
+            handleSaveItem={this.handleSaveItem}
+            error={this.state.formError}
+          />
         ) : (
           <Menu
             menuItems={this.state.menuItems}

@@ -1,7 +1,7 @@
 // @Author: sarahnouh
 // @Date:   1985-10-26T10:15:00+02:00
 // @Last modified by:   sarahnouh
-// @Last modified time: 2019-06-17T19:08:10+02:00
+// @Last modified time: 2019-06-18T04:58:09+02:00
 $blue: #85a9ff;
 $lightPink: #ffe5d9;
 .header {
@@ -49,6 +49,11 @@ $lightPink: #ffe5d9;
   .form-control {
     border-color: $blue;
     // color: lightgray;
+  }
+  .error-msg {
+    margin: 5px 0;
+    font-weight: 600;
+    color: #ffa896;
   }
   label {
     // color: gray;
