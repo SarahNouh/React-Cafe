@@ -29,6 +29,12 @@ class Form extends Component<formProps> {
     this.type = "Side";
     this.price = 0;
   }
+
+  onImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if ((event.target as any).files && (event.target as any).files[0]) {
+      this.imgSrc = URL.createObjectURL((event.target as any).files[0]);
+    }
+  };
   render() {
     return (
       <div className="item-form container">
@@ -68,7 +74,6 @@ class Form extends Component<formProps> {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     this.name = e.target.value;
                   }}
-                  required
                 />
               </div>
             </div>
@@ -100,6 +105,7 @@ class Form extends Component<formProps> {
                   type="file"
                   className="form-control-file"
                   id="exampleFormControlFile1"
+                  onChange={this.onImageChange}
                 />
               </div>
             </div>
@@ -113,7 +119,7 @@ class Form extends Component<formProps> {
               <div className="col-sm-10">
                 <button
                   className="btn btn-primary"
-                  onClick={(e: any) => {
+                  onClick={(e: React.MouseEvent) => {
                     e.preventDefault();
                     this.props.handleSaveItem({
                       imgSrc: this.imgSrc,
