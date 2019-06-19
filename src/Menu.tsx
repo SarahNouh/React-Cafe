@@ -1,16 +1,6 @@
 import React, { Component } from "react";
+import { MenuProps } from "./interfaces/menu-props-interface";
 
-interface MenuProps {
-  menuItems: menuItem[];
-  handleShowForm: () => void;
-}
-
-interface menuItem {
-  imgSrc: string;
-  type: string;
-  name: string;
-  price: number;
-}
 class Menu extends Component<MenuProps> {
   render() {
     return (
@@ -31,15 +21,20 @@ class Menu extends Component<MenuProps> {
             </div>
           </div>
           <div className="row">
-            {this.props.menuItems.map(menuItem => {
+            {this.props.menuItems.map((menuItem, index) => {
               return (
-                <div className="menu-card col-md-6 col-lg-4">
+                <div className="menu-card col-md-6 col-lg-4" key={index}>
                   {menuItem.imgSrc !== "" ? (
-                    <img src={menuItem.imgSrc} alt="" className="card-img" />
+                    <img
+                      src={menuItem.imgSrc}
+                      alt="Food"
+                      className="card-img"
+                    />
                   ) : (
                     <img
                       src="http://placehold.jp/24/cccccc/ffffff/350x250.png?text=NoImage"
                       className="card-img"
+                      alt="placeholder"
                     />
                   )}
                   <div className="card-info">

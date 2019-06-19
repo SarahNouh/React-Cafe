@@ -1,30 +1,35 @@
 import React, { Component } from "react";
-
-interface formProps {
-  handleSaveItem: (item: menuItem) => void;
-  error: boolean;
-}
-
-interface menuItem {
-  imgSrc: string;
-  type: string;
-  name: string;
-  price: number;
-}
+import { formProps } from "./interfaces/form-props-interface";
 class Form extends Component<formProps> {
+  /**
+   *the src of the image
+   *@type string
+   */
   imgSrc: string;
+  /**
+   *the item name
+   *@type string
+   */
   name: string;
+  /**
+   *the item type (side or main course)
+   *@type string
+   */
   type: string;
+  /**
+   *the item price
+   *@type number
+   */
   price: number;
   constructor(props: formProps) {
     super(props);
+    //set initial values for item data
     this.name = "";
     this.imgSrc = "";
     this.type = "Side";
     this.price = 0;
   }
   render() {
-    console.log(this.props.error);
     return (
       <div className="item-form container">
         <h4 className="form-header">Add Menu Item</h4>
